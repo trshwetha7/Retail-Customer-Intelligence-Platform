@@ -4,13 +4,13 @@
 
 Retail Customer Intelligence Platform is an end-to-end analytics and machine learning project built on the UCI Online Retail dataset. The project studies customer behavior through transaction history, invoice structure, product descriptions, geographic distribution, and purchase timing, then turns those observations into practical decision support for segmentation, retention, future customer value prioritization, personalization, and demand monitoring.
 
-The repository is structured as a reusable case study rather than a single notebook. Shared logic lives in `src/`, the notebook tells a clean analytical story, and the Streamlit application exposes the same outputs through an interactive interface.
+Shared logic lives in `src/`, the notebook tells a clean analytical story and the Streamlit application produces the same outputs through an interactive interface.
 
 ## Executive Summary
 
 ### Key findings
 
-- Customer segmentation provides a practical way to distinguish high-value loyal buyers, lower-engagement accounts, and more seasonal or emerging customer groups using recency, spend, basket, and diversity signals.
+- Customer segmentation provides a practical way to distinguish high-value loyal buyers, lower-engagement accounts and more seasonal or emerging customer groups using recency, spend, basket and diversity signals.
 - Cohort and retention analysis highlights how repeat purchasing evolves after first purchase and helps surface which acquisition periods appear to sustain revenue more effectively over time.
 - The future customer value module converts historical behavior into a near-term prioritization view, using rolling snapshots to identify customers more likely to spend or return within the next 90 days.
 - Recommendation and demand modules complement the customer view by comparing generic versus personalized product suggestions and by tracking which product families show more persistent or shifting demand patterns.
@@ -68,7 +68,7 @@ Place the raw file in `data/raw/` or a subfolder beneath it. The loader searches
 - `Online Retail.csv`
 - `online_retail.csv`
 
-The current implementation is designed around the original UCI dataset file, typically distributed as an Excel workbook.
+The current implementation is designed around the original UCI dataset file.
 
 ## Development Strategy
 
@@ -87,7 +87,7 @@ The platform standardizes the raw data into a reusable schema with:
 - `revenue`
 - transaction date and calendar features
 
-It also removes cancellations and non-positive quantity or price records so the downstream models focus on realized purchases.
+It also removes cancellations and non-positive quantity or price records so the downstream models focus on actual purchases.
 
 ## Project Structure
 
