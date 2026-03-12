@@ -6,6 +6,22 @@ Retail Customer Intelligence Platform is an end-to-end analytics and machine lea
 
 The repository is structured as a reusable case study rather than a single notebook. Shared logic lives in `src/`, the notebook tells a clean analytical story, and the Streamlit application exposes the same outputs through an interactive interface.
 
+## Executive Summary
+
+### Key findings
+
+- Customer segmentation provides a practical way to distinguish high-value loyal buyers, lower-engagement accounts, and more seasonal or emerging customer groups using recency, spend, basket, and diversity signals.
+- Cohort and retention analysis highlights how repeat purchasing evolves after first purchase and helps surface which acquisition periods appear to sustain revenue more effectively over time.
+- The future customer value module converts historical behavior into a near-term prioritization view, using rolling snapshots to identify customers more likely to spend or return within the next 90 days.
+- Recommendation and demand modules complement the customer view by comparing generic versus personalized product suggestions and by tracking which product families show more persistent or shifting demand patterns.
+
+### Business implications
+
+- Customer treatment can be made more targeted by aligning messaging, cadence, and product emphasis to distinct behavioral segments rather than treating the full base uniformly.
+- Early retention monitoring matters because cohort patterns often reveal value decay quickly, making it easier to focus intervention on weaker customer vintages before inactivity becomes entrenched.
+- Near-term value scoring creates a defensible way to prioritize retention and reactivation activity when resources or marketing attention need to be allocated selectively.
+- Product-family demand and recommendation outputs provide a more connected planning view across CRM, merchandising, and assortment decisions, even without a full production recommendation stack.
+
 ## Motivation
 
 Retail decision-making is shaped by timing, repeat purchase behavior, product mix, and heterogeneous customer preferences. A transaction table can answer narrow descriptive questions, but it becomes much more useful when treated as a customer intelligence system:
@@ -28,6 +44,16 @@ The platform is organized into six analytical modules:
 4. Product recommendations with both baseline and personalized methods.
 5. Demand and trend analysis at the product-family level.
 6. Final synthesis that turns outputs into practical retail interpretation.
+
+## Business Questions and Analytical Approach
+
+| Business Question | Analytical Approach | Primary Output |
+|---|---|---|
+| Which customers appear most valuable or strategically important? | Behavioral feature engineering and unsupervised segmentation using recency, spend, basket depth, diversity, and repeat signals | Customer segments, segment profiles, sample customer views |
+| How does retention vary across acquisition cohorts? | First-purchase cohort construction with monthly retention and cohort revenue tracking | Retention matrix, cohort revenue curves, early-repeat patterns |
+| Which customers should be prioritized for near-term value? | Rolling snapshot modeling for 90-day future spend or repeat purchase propensity | Customer-level prediction scores and model evaluation tables |
+| Does personalization outperform generic recommendations? | Offline comparison of a popularity baseline against item-item similarity recommendations | Precision@k, recall@k, hit rate, sample recommendation outputs |
+| Which product families are gaining or losing momentum? | Temporal aggregation of revenue and units by derived product family with trend and timing analysis | Demand trend charts, category shift tables, short-horizon forecasts |
 
 ## Dataset
 
@@ -263,23 +289,23 @@ Once the dataset is loaded and the pipeline runs, the project is designed to ans
 
 The exact numeric findings depend on the prepared data and should be interpreted in context rather than treated as universal retail truths.
 
-## Limitations
+## Limitations and Assumptions
 
-This project uses a useful public transaction dataset, but it still has material limitations:
+- The dataset is transaction-level retail data, so the analysis is strongest on observed purchase behavior rather than broader customer journey context.
+- There is no browsing, session, or clickstream data, which limits the ability to study consideration behavior, discovery paths, or on-site intent before purchase.
+- There is no campaign exposure or attribution data, so changes in purchasing cannot be tied credibly to marketing touchpoints or channel-specific uplift.
+- There is no inventory state or product-page interaction data, so recommendation and demand outputs are not inventory-aware and do not reflect availability constraints or product interest without purchase.
+- Product-family labels are derived heuristically from product descriptions, which is useful for analysis but not equivalent to a governed merchandise taxonomy.
+- Conclusions should be interpreted as directional and analytical rather than as production-grade causal claims or fully operational decision rules.
 
-- no customer demographics or CRM exposure history
-- no margin or cost data, so value is revenue-based rather than profit-based
-- no explicit inventory state, so recommendations are not stock-aware
-- no official product hierarchy, so family-level demand analysis depends on a heuristic grouping
-- no causal design, so uplift and attribution cannot be inferred
+### Future Extensions
 
-## Future Work
-
-- Replace heuristic product-family derivation with a richer merchandise taxonomy.
-- Replace item similarity with an implicit factorization or approximate nearest-neighbor workflow.
-- Add margin-aware prioritization if profitability data becomes available.
-- Extend snapshot features with richer temporal encodings and lifecycle transitions.
-- Add uncertainty-aware demand forecasting instead of point forecasts only.
+- Add web analytics events such as sessions, product views, cart actions, and search behavior to improve customer intent modeling and pre-purchase analysis.
+- Incorporate merchandising data such as assortment structure, hierarchy, and brand or supplier attributes to strengthen category and mix analysis.
+- Add promotion and markdown data to separate underlying demand from price-driven purchasing behavior.
+- Integrate inventory and availability data so demand signals and recommendations can be evaluated in an operational context.
+- Replace heuristic product-family derivation with a richer product taxonomy or master data layer.
+- Add online experimentation or holdout-test data to support stronger causal evaluation of recommendations, retention interventions, and prioritization strategies.
 
 ## How To Run
 
