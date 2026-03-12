@@ -1,0 +1,6 @@
+- Built an end-to-end retail analytics platform on the UCI Online Retail dataset, integrating customer behavior analysis, machine learning, and interactive decision support.
+- Engineered customer-level features spanning recency, spend, basket depth, product diversity, repeat purchasing, country concentration, and seasonality to support segmentation and predictive modeling.
+- Developed clustering-based customer segments and cohort retention analysis to identify distinct buyer profiles, lifecycle patterns, and cohort-level revenue differences.
+- Trained near-term customer value models using rolling temporal snapshots and compared baseline and non-linear approaches with time-aware evaluation metrics.
+- Implemented a recommendation module with both popularity and personalized item-similarity methods, then evaluated offline recommendation quality with precision, recall, and hit-rate metrics.
+- Created a multi-page Streamlit application for exploring segmentation, retention, future value, recommendations, demand trends, and synthesized business findings.
