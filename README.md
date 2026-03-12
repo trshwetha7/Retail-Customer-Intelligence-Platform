@@ -317,7 +317,7 @@ streamlit run app/Overview.py
 
 ## Notes on Interpretation
 
-This repository is strongest when treated as a customer intelligence platform rather than a single-model exercise. The value comes from joining multiple views of the business:
+This repository is about a customer intelligence platform and its value comes from joining multiple views of the business:
 
 - segments explain heterogeneity
 - cohorts explain lifecycle durability
@@ -326,3 +326,7 @@ This repository is strongest when treated as a customer intelligence platform ra
 - demand analysis explains where product-family momentum is shifting
 
 That combined view is the main point of the project.
+
+
+## Author
+**Shwetha Tinnium Raju**
